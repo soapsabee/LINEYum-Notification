@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors())
 
 app.get('/api/alertNotificaiton/:id',call.checkDataOnFirebase);
-app.get('/api/alertyum/:id', call.alertNotification);
+
 
 
 var port = process.env.PORT || 3000;
