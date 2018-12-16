@@ -14,3 +14,7 @@ app.get('/api/alertNotificaiton/:id',call.checkDataOnFirebase);
 
 
 
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('App is running on http://localhost:' + port);
+});
