@@ -18,13 +18,14 @@ var config = {
  
   function checkDataOnFirebase(req,res) {
     var id = parseInt(req.params.id);
-    console.log(id)
+    var latitude = parseInt(req.params.latitude);
+    var longitude = parseInt(req.params.longitude);
     var allProductRef = db.collection("person").where("pid", "==", id);
     allProductRef.get().then(function (querySnapshot) {
        
       if (querySnapshot.size >0 ) {
         var data = querySnapshot.docs.map(function (documentSnapshot) {
-          alertNotification(documentSnapshot.data());
+          alertNotification(documentSnapshot.data(),latitude,longitude);
           
         });
         
@@ -42,7 +43,7 @@ var config = {
   }
 
 
-function alertNotification(data){
+function alertNotification(data,latitude,longitude){
 
 request({
     method: 'POST',
@@ -54,8 +55,7 @@ request({
       bearer: 'LYpXRnyLdRmclHWwRLVqIEDHvjzc7bJoDchm6FoITz9', //token
     },
     form: {
-      message: 'คุณ'+'  '+
-                 data.name +'    '+data.lastname+'    '+'กรุณามาเลื่อนรถ', //ข้อความที่จะส่ง
+      message: `http://www.google.com/maps/place/${latitude},${longitude}`, //ข้อความที่จะส่ง
     },
   }, (err, httpResponse, body) => {
     if (err) {

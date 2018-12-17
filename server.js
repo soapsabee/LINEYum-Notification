@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors())
 
-app.get('/api/alertNotificaiton/:id',call.checkDataOnFirebase);
+app.get('/api/alertNotificaiton/:id/:latitude/:longitude',call.checkDataOnFirebase);
 
 
 
