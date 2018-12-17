@@ -18,8 +18,8 @@ var config = {
  
   function checkDataOnFirebase(req,res) {
     var id = parseInt(req.params.id);
-    var latitude = parseInt(req.params.latitude);
-    var longitude = parseInt(req.params.longitude);
+    var latitude = parseFloat(req.params.latitude);
+    var longitude = parseFloat(req.params.longitude);
     var allProductRef = db.collection("person").where("pid", "==", id);
     allProductRef.get().then(function (querySnapshot) {
        
