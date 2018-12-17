@@ -55,7 +55,7 @@ request({
       bearer: 'LYpXRnyLdRmclHWwRLVqIEDHvjzc7bJoDchm6FoITz9', //token
     },
     form: {
-      message: `http://www.google.com/maps/place/${latitude},${longitude}`, //ข้อความที่จะส่ง
+      message: `${data.name},${data.lastname}กรุณาเลื่อนรถของท่าน : http://www.google.com/maps/place/${latitude},${longitude}`, //ข้อความที่จะส่ง
     },
   }, (err, httpResponse, body) => {
     if (err) {
